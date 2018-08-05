@@ -108,15 +108,18 @@
 
 
 
-  <meta name="keywords" content="linux">
+  <meta name="description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/linux/index.html">
 <meta property="og:site_name" content="学海无涯">
+<meta property="og:description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-05T04:46:48.514Z">
+<meta property="og:updated_time" content="2018-08-05T10:21:51.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
 
 
 
@@ -324,7 +327,7 @@
                 
               
 
-              <time title="创建时间：2018-08-05 12:45:23 / 修改时间：12:46:48" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
+              <time title="创建时间：2018-08-05 12:45:23 / 修改时间：18:21:51" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
             
 
             
@@ -380,7 +383,47 @@
       
 
       
-        
+        <h1 id="tar-的常用方法"><a href="#tar-的常用方法" class="headerlink" title="tar 的常用方法"></a>tar 的常用方法</h1><pre><code>-tar -c新建打包文件,
+-x 压缩解压缩
+-j bzip2压缩解压缩
+-z gzip压缩解压缩
+-v 显示文件名
+-f 后接被处理的文件名
+
+tar -cjvf --
+tar -xjvf --
+</code></pre><h1 id="linux下解压windows文件乱码问题"><a href="#linux下解压windows文件乱码问题" class="headerlink" title="linux下解压windows文件乱码问题"></a>linux下解压windows文件乱码问题</h1><pre><code>unzip -O Cp936 xxx.zip
+</code></pre><h1 id="firewall"><a href="#firewall" class="headerlink" title="firewall:"></a>firewall:</h1><p><em>使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略，策略之间无关联。 比如mysql使用3306，firewall添加mysql服务但未添加3306，当查询3306端口状态会显示no； 同理，添加3306端口，但未添加mysql服务，当查询mysql服务是否被firewalld允许时，显示no。在这两种情况下，外网都可以正常访问，也必须能访问，这里的逻辑不存在问题。同样，拿Java程序开发来类比：往hashMap.put进service与port，当get的时候就成了两码事,即便所操作的是关于mysql服务</em></p>
+<p>#防火墙常用的命令</p>
+<h3 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1.查看防火墙状态"></a>1.查看防火墙状态</h3><pre><code>systemctl status firewalld
+</code></pre><h3 id="2-查看开放的服务-端口："><a href="#2-查看开放的服务-端口：" class="headerlink" title="2.查看开放的服务/端口："></a>2.查看开放的服务/端口：</h3><pre><code>firewall-cmd --list-service
+firewall-cmd --list-port
+</code></pre><h3 id="3-查询指定的端口是否永久开放"><a href="#3-查询指定的端口是否永久开放" class="headerlink" title="3.查询指定的端口是否永久开放"></a>3.查询指定的端口是否永久开放</h3><pre><code>firewall-cmd --permanent --query-port=1000/tcp
+</code></pre><h3 id="4-查询指定的服务-端口："><a href="#4-查询指定的服务-端口：" class="headerlink" title="4.查询指定的服务/端口："></a>4.查询指定的服务/端口：</h3><pre><code>firewall-cmd --query-service ssh
+firewall-cmd --query-port=3306/tcp
+</code></pre><h3 id="5-添加服务："><a href="#5-添加服务：" class="headerlink" title="5.添加服务："></a>5.添加服务：</h3><pre><code>firewall-cmd --permanent --add-service=ftp
+firewall-cmd --permanent --remove-service=ftp
+</code></pre><h3 id="6-添加端口"><a href="#6-添加端口" class="headerlink" title="6.添加端口"></a>6.添加端口</h3><pre><code>方式1：
+  firewall-cmd --permanent --add-port=3306/tcp
+  firewall-cmd --permanent --add-port=1522/tcp
+  firewall-cmd --reload
+方式2：
+  cp  /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ssh.xml
+  vi  /etc/firewalld/services/ssh.xml
+  vi /etc/firewalld/zones/public.xml
+</code></pre><h3 id="7-查看存在的zones"><a href="#7-查看存在的zones" class="headerlink" title="7.查看存在的zones:"></a>7.查看存在的zones:</h3><pre><code>firewall-cmd --get-zones
+</code></pre><h3 id="8-当前使用的zone："><a href="#8-当前使用的zone：" class="headerlink" title="8.当前使用的zone："></a>8.当前使用的zone：</h3><pre><code>firewall-cmd --get-active-zones
+</code></pre><h3 id="9-zone为public的所有策略："><a href="#9-zone为public的所有策略：" class="headerlink" title="9.zone为public的所有策略："></a>9.zone为public的所有策略：</h3><pre><code>firewall-cmd --zone=public --list-all
+</code></pre><h3 id="10-设置默认的zone-（public是最合适的，也是firewall默认的）"><a href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）" class="headerlink" title="10.设置默认的zone: （public是最合适的，也是firewall默认的）"></a>10.设置默认的zone: （public是最合适的，也是firewall默认的）</h3><pre><code>firewall-cmd --set-default-zone=public
+</code></pre><p>#结果终端提示:无法获得锁/var/lib/dpkg/lock</p>
+<pre><code>结果终端提示:无法获得锁/var/lib/dpkg/lock
+E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？”
+解决办法如下：
+1.终端输入 ps  -aux ，列出进程,找到含有apt-get的进程，直接sudo kill PID解决。
+2.强制解锁--命令:
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+</code></pre>
       
     </div>
 
@@ -470,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -565,6 +617,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-的常用方法"><span class="nav-number">1.</span> <span class="nav-text">tar 的常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下解压windows文件乱码问题"><span class="nav-number">2.</span> <span class="nav-text">linux下解压windows文件乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall"><span class="nav-number">3.</span> <span class="nav-text">firewall:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看防火墙状态"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.查看防火墙状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看开放的服务-端口："><span class="nav-number">3.0.2.</span> <span class="nav-text">2.查看开放的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查询指定的端口是否永久开放"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.查询指定的端口是否永久开放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-查询指定的服务-端口："><span class="nav-number">3.0.4.</span> <span class="nav-text">4.查询指定的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加服务："><span class="nav-number">3.0.5.</span> <span class="nav-text">5.添加服务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加端口"><span class="nav-number">3.0.6.</span> <span class="nav-text">6.添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看存在的zones"><span class="nav-number">3.0.7.</span> <span class="nav-text">7.查看存在的zones:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-当前使用的zone："><span class="nav-number">3.0.8.</span> <span class="nav-text">8.当前使用的zone：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-zone为public的所有策略："><span class="nav-number">3.0.9.</span> <span class="nav-text">9.zone为public的所有策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）"><span class="nav-number">3.0.10.</span> <span class="nav-text">10.设置默认的zone: （public是最合适的，也是firewall默认的）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

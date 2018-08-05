@@ -799,7 +799,7 @@
                 
               
 
-              <time title="创建时间：2018-08-05 12:45:23 / 修改时间：12:46:48" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
+              <time title="创建时间：2018-08-05 12:45:23 / 修改时间：18:21:51" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
             
 
             
@@ -857,7 +857,47 @@
       
         
           
-            
+            <h1 id="tar-的常用方法"><a href="#tar-的常用方法" class="headerlink" title="tar 的常用方法"></a>tar 的常用方法</h1><pre><code>-tar -c新建打包文件,
+-x 压缩解压缩
+-j bzip2压缩解压缩
+-z gzip压缩解压缩
+-v 显示文件名
+-f 后接被处理的文件名
+
+tar -cjvf --
+tar -xjvf --
+</code></pre><h1 id="linux下解压windows文件乱码问题"><a href="#linux下解压windows文件乱码问题" class="headerlink" title="linux下解压windows文件乱码问题"></a>linux下解压windows文件乱码问题</h1><pre><code>unzip -O Cp936 xxx.zip
+</code></pre><h1 id="firewall"><a href="#firewall" class="headerlink" title="firewall:"></a>firewall:</h1><p><em>使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略，策略之间无关联。 比如mysql使用3306，firewall添加mysql服务但未添加3306，当查询3306端口状态会显示no； 同理，添加3306端口，但未添加mysql服务，当查询mysql服务是否被firewalld允许时，显示no。在这两种情况下，外网都可以正常访问，也必须能访问，这里的逻辑不存在问题。同样，拿Java程序开发来类比：往hashMap.put进service与port，当get的时候就成了两码事,即便所操作的是关于mysql服务</em></p>
+<p>#防火墙常用的命令</p>
+<h3 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1.查看防火墙状态"></a>1.查看防火墙状态</h3><pre><code>systemctl status firewalld
+</code></pre><h3 id="2-查看开放的服务-端口："><a href="#2-查看开放的服务-端口：" class="headerlink" title="2.查看开放的服务/端口："></a>2.查看开放的服务/端口：</h3><pre><code>firewall-cmd --list-service
+firewall-cmd --list-port
+</code></pre><h3 id="3-查询指定的端口是否永久开放"><a href="#3-查询指定的端口是否永久开放" class="headerlink" title="3.查询指定的端口是否永久开放"></a>3.查询指定的端口是否永久开放</h3><pre><code>firewall-cmd --permanent --query-port=1000/tcp
+</code></pre><h3 id="4-查询指定的服务-端口："><a href="#4-查询指定的服务-端口：" class="headerlink" title="4.查询指定的服务/端口："></a>4.查询指定的服务/端口：</h3><pre><code>firewall-cmd --query-service ssh
+firewall-cmd --query-port=3306/tcp
+</code></pre><h3 id="5-添加服务："><a href="#5-添加服务：" class="headerlink" title="5.添加服务："></a>5.添加服务：</h3><pre><code>firewall-cmd --permanent --add-service=ftp
+firewall-cmd --permanent --remove-service=ftp
+</code></pre><h3 id="6-添加端口"><a href="#6-添加端口" class="headerlink" title="6.添加端口"></a>6.添加端口</h3><pre><code>方式1：
+  firewall-cmd --permanent --add-port=3306/tcp
+  firewall-cmd --permanent --add-port=1522/tcp
+  firewall-cmd --reload
+方式2：
+  cp  /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ssh.xml
+  vi  /etc/firewalld/services/ssh.xml
+  vi /etc/firewalld/zones/public.xml
+</code></pre><h3 id="7-查看存在的zones"><a href="#7-查看存在的zones" class="headerlink" title="7.查看存在的zones:"></a>7.查看存在的zones:</h3><pre><code>firewall-cmd --get-zones
+</code></pre><h3 id="8-当前使用的zone："><a href="#8-当前使用的zone：" class="headerlink" title="8.当前使用的zone："></a>8.当前使用的zone：</h3><pre><code>firewall-cmd --get-active-zones
+</code></pre><h3 id="9-zone为public的所有策略："><a href="#9-zone为public的所有策略：" class="headerlink" title="9.zone为public的所有策略："></a>9.zone为public的所有策略：</h3><pre><code>firewall-cmd --zone=public --list-all
+</code></pre><h3 id="10-设置默认的zone-（public是最合适的，也是firewall默认的）"><a href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）" class="headerlink" title="10.设置默认的zone: （public是最合适的，也是firewall默认的）"></a>10.设置默认的zone: （public是最合适的，也是firewall默认的）</h3><pre><code>firewall-cmd --set-default-zone=public
+</code></pre><p>#结果终端提示:无法获得锁/var/lib/dpkg/lock</p>
+<pre><code>结果终端提示:无法获得锁/var/lib/dpkg/lock
+E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？”
+解决办法如下：
+1.终端输入 ps  -aux ，列出进程,找到含有apt-get的进程，直接sudo kill PID解决。
+2.强制解锁--命令:
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+</code></pre>
           
         
       
@@ -956,7 +996,7 @@
                 
               
 
-              <time title="创建时间：2018-08-05 12:44:07 / 修改时间：15:10:35" itemprop="dateCreated datePublished" datetime="2018-08-05T12:44:07+08:00">2018-08-05</time>
+              <time title="创建时间：2018-08-05 12:44:07 / 修改时间：15:48:07" itemprop="dateCreated datePublished" datetime="2018-08-05T12:44:07+08:00">2018-08-05</time>
             
 
             
@@ -1019,7 +1059,9 @@
 <h2 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h2><p><em>这里只提四种常见的算法，分别是dijstra，Floyd，bellman_ford,spfa</em></p>
 <h3 id="dijstra"><a href="#dijstra" class="headerlink" title="dijstra"></a>dijstra</h3><pre><code>dijstra 采用了一种贪心策略，定义了最短路径集合，当发现一个已经是最短路径的顶点是，则将这个顶点加入到最短路径的集合中。当算法做到最短路径集合中包含全部顶点是，则算法结束
 </code></pre><hr>
-<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><hr>
+<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><h3 id="莫比乌斯引入"><a href="#莫比乌斯引入" class="headerlink" title="莫比乌斯引入"></a>莫比乌斯引入</h3><pre><code>先看一个函数 
+    $$\sum_{i=0}^{n}$  \prod_\epsilon$$
+</code></pre><hr>
 <h2 id="高斯消元"><a href="#高斯消元" class="headerlink" title="高斯消元"></a>高斯消元</h2><h3 id="高斯消元方法和主元的处理"><a href="#高斯消元方法和主元的处理" class="headerlink" title="高斯消元方法和主元的处理"></a>高斯消元方法和主元的处理</h3><p><em>高斯消元法，是线性代数中的一个算法，可用来求解线性方程组，并可以求出矩阵的秩，以及求出可逆方阵的逆矩阵</em><br><em>高斯消元法的原理是</em>：若用初等行变换将增广矩阵 化为 ，则AX = B与CX = D是同解方程组<br>高斯消元的注意事项：</p>
 <ol>
 <li>主元的处理：<br><em>因为在计算机中有效数字有限，这会导致计算机计算的结果出现比较大的偏差，下面看一个例子</em></li>
