@@ -108,18 +108,18 @@
 
 
 
-  <meta name="description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
+  <meta name="description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
 <meta property="og:url" content="http://yoursite.com/2018/08/05/linux/index.html">
 <meta property="og:site_name" content="学海无涯">
-<meta property="og:description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
+<meta property="og:description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-05T10:21:51.480Z">
+<meta property="og:updated_time" content="2018-08-06T05:50:24.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux">
-<meta name="twitter:description" content="tar 的常用方法-tar -c新建打包文件, -x 压缩解压缩 -j bzip2压缩解压缩 -z gzip压缩解压缩 -v 显示文件名 -f 后接被处理的文件名  tar -cjvf -- tar -xjvf -- linux下解压windows文件乱码问题unzip -O Cp936 xxx.zip firewall:使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略">
+<meta name="twitter:description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
 
 
 
@@ -186,9 +186,7 @@
   
 
   <div class="container sidebar-position-left page-post-detail">
-    <div class="headband">
-	<a href="https://github.com/Dyryamo" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
-	</div>
+    <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -327,12 +325,24 @@
                 
               
 
-              <time title="创建时间：2018-08-05 12:45:23 / 修改时间：18:21:51" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
+              <time title="创建时间：2018-08-05 12:45:23" itemprop="dateCreated datePublished" datetime="2018-08-05T12:45:23+08:00">2018-08-05</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-06 13:50:24" itemprop="dateModified" datetime="2018-08-06T13:50:24+08:00">2018-08-06</time>
               
             
           </span>
@@ -383,7 +393,58 @@
       
 
       
-        <h1 id="tar-的常用方法"><a href="#tar-的常用方法" class="headerlink" title="tar 的常用方法"></a>tar 的常用方法</h1><pre><code>-tar -c新建打包文件,
+        <h1 id="vim-常用命令"><a href="#vim-常用命令" class="headerlink" title="vim 常用命令"></a>vim 常用命令</h1><h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><pre><code>H 移动到屏幕最上方一行的第一个字符
+
+M 移动到屏幕最中央一行的第一个字符
+
+L 移动到屏幕最下方一行的第一个字符
+
+w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。
+
+b 向后移动一个单词 2b 向后移动2个单词
+
+e，同w，只不过是光标停在单词尾部
+
+ge，同b，光标停在单词尾部。
+
+^ 移动到本行第一个非空白字符上。
+
+0（数字0）移动到本行第一个字符上，
+
+&lt;HOME&gt; 移动到本行第一个字符。同0健。
+
+$ 移动到行尾 3$ 移动到下面3行的行尾
+
+gg 移动到文件头。 = [[
+
+G（shift + g） 移动到文件尾。 = ]]
+
+f（find）命令也可以用于移动，fx将找到光标后第一个为x的字符，3fd将找到第三个为d的字符。
+
+F 同f，反向查找。
+
+跳到指定行，冒号+行号，回车，比如跳到240行就是 :240回车。另一个方法是行号+G，比如230G跳到230行
+</code></pre><h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><pre><code>u 撤销（Undo）
+U 撤销对整行的操作
+Ctrl + r 重做（Redo），即撤销的撤销。
+</code></pre><h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><pre><code>x 删除当前字符
+3x 删除当前光标开始向后三个字符
+X 删除当前字符的前一个字符。X=dh
+dl 删除当前字符， dl=x
+dh 删除前一个字符
+dd 删除当前行
+dj 删除上一行
+dk 删除下一行
+10d 删除当前行开始的10行。
+D 删除当前字符至行尾。D=d$
+d$ 删除当前字符之后的所有字符（本行）
+kdgg 删除当前行之前所有行（不包括当前行）
+jdG（jd shift + g）   删除当前行之后所有行（不包括当前行）
+:1,10d 删除1-10行
+:11,$d 删除11行及以后所有的行
+:1,$d 删除所有行
+J(shift + j)　　删除两行之间的空行，实际上是合并两行。
+</code></pre><h1 id="tar-的常用方法"><a href="#tar-的常用方法" class="headerlink" title="tar 的常用方法"></a>tar 的常用方法</h1><pre><code>-tar -c新建打包文件,
 -x 压缩解压缩
 -j bzip2压缩解压缩
 -z gzip压缩解压缩
@@ -466,8 +527,8 @@ sudo rm /var/lib/dpkg/lock
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/05/python/" rel="prev" title="python">
-                python <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/06/net/" rel="prev" title="net">
+                net <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +599,7 @@ sudo rm /var/lib/dpkg/lock
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -555,9 +616,7 @@ sudo rm /var/lib/dpkg/lock
                     
                       
                     
-                      
-                    
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -580,11 +639,7 @@ sudo rm /var/lib/dpkg/lock
                     
                       
                     
-                      
-                    
-                      
-                    
-                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -627,7 +682,7 @@ sudo rm /var/lib/dpkg/lock
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-的常用方法"><span class="nav-number">1.</span> <span class="nav-text">tar 的常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下解压windows文件乱码问题"><span class="nav-number">2.</span> <span class="nav-text">linux下解压windows文件乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall"><span class="nav-number">3.</span> <span class="nav-text">firewall:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看防火墙状态"><span class="nav-number">3.0.1.</span> <span class="nav-text">1.查看防火墙状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看开放的服务-端口："><span class="nav-number">3.0.2.</span> <span class="nav-text">2.查看开放的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查询指定的端口是否永久开放"><span class="nav-number">3.0.3.</span> <span class="nav-text">3.查询指定的端口是否永久开放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-查询指定的服务-端口："><span class="nav-number">3.0.4.</span> <span class="nav-text">4.查询指定的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加服务："><span class="nav-number">3.0.5.</span> <span class="nav-text">5.添加服务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加端口"><span class="nav-number">3.0.6.</span> <span class="nav-text">6.添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看存在的zones"><span class="nav-number">3.0.7.</span> <span class="nav-text">7.查看存在的zones:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-当前使用的zone："><span class="nav-number">3.0.8.</span> <span class="nav-text">8.当前使用的zone：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-zone为public的所有策略："><span class="nav-number">3.0.9.</span> <span class="nav-text">9.zone为public的所有策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）"><span class="nav-number">3.0.10.</span> <span class="nav-text">10.设置默认的zone: （public是最合适的，也是firewall默认的）</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-常用命令"><span class="nav-number">1.</span> <span class="nav-text">vim 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动"><span class="nav-number">1.1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销"><span class="nav-number">1.2.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">1.3.</span> <span class="nav-text">删除命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-的常用方法"><span class="nav-number">2.</span> <span class="nav-text">tar 的常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下解压windows文件乱码问题"><span class="nav-number">3.</span> <span class="nav-text">linux下解压windows文件乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall"><span class="nav-number">4.</span> <span class="nav-text">firewall:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看防火墙状态"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.查看防火墙状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看开放的服务-端口："><span class="nav-number">4.0.2.</span> <span class="nav-text">2.查看开放的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查询指定的端口是否永久开放"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.查询指定的端口是否永久开放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-查询指定的服务-端口："><span class="nav-number">4.0.4.</span> <span class="nav-text">4.查询指定的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加服务："><span class="nav-number">4.0.5.</span> <span class="nav-text">5.添加服务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加端口"><span class="nav-number">4.0.6.</span> <span class="nav-text">6.添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看存在的zones"><span class="nav-number">4.0.7.</span> <span class="nav-text">7.查看存在的zones:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-当前使用的zone："><span class="nav-number">4.0.8.</span> <span class="nav-text">8.当前使用的zone：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-zone为public的所有策略："><span class="nav-number">4.0.9.</span> <span class="nav-text">9.zone为public的所有策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）"><span class="nav-number">4.0.10.</span> <span class="nav-text">10.设置默认的zone: （public是最合适的，也是firewall默认的）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -831,6 +886,7 @@ sudo rm /var/lib/dpkg/lock
 
   
 
-	<script type="text/javascript" src="/js/src/love.js"></script>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>
