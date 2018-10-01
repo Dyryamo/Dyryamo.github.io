@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="常见的网络状态200: 一切正常300/301： 页面重定向/跳转404：资源不存在403：权限不足500：服务器内部错误，（代码有错） jsp 定义jsp: html 嵌入java代码 &amp;lt;% java 代码%&amp;gt; 默认index在/WEB_INF/web.xml中设置默认打index 123&amp;lt;welcome-file-list&amp;gt;&amp;lt;welcome-file&amp;gt;ind">
+<meta name="keywords" content="javaweb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaweb">
+<meta property="og:url" content="http://yoursite.com/2018/09/23/java/index.html">
+<meta property="og:site_name" content="学海无涯">
+<meta property="og:description" content="常见的网络状态200: 一切正常300/301： 页面重定向/跳转404：资源不存在403：权限不足500：服务器内部错误，（代码有错） jsp 定义jsp: html 嵌入java代码 &amp;lt;% java 代码%&amp;gt; 默认index在/WEB_INF/web.xml中设置默认打index 123&amp;lt;welcome-file-list&amp;gt;&amp;lt;welcome-file&amp;gt;ind">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/09/23/java/javaweb/show.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/23/java/javaweb/修改tomcat默认编码.png">
+<meta property="og:updated_time" content="2018-10-01T05:41:38.214Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javaweb">
+<meta name="twitter:description" content="常见的网络状态200: 一切正常300/301： 页面重定向/跳转404：资源不存在403：权限不足500：服务器内部错误，（代码有错） jsp 定义jsp: html 嵌入java代码 &amp;lt;% java 代码%&amp;gt; 默认index在/WEB_INF/web.xml中设置默认打index 123&amp;lt;welcome-file-list&amp;gt;&amp;lt;welcome-file&amp;gt;ind">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/23/java/javaweb/show.png">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="学海无涯" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/23/java/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>javaweb | 学海无涯</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学海无涯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/23/java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学海无涯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javaweb
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-23 17:48:27" itemprop="dateCreated datePublished" datetime="2018-09-23T17:48:27+08:00">2018-09-23</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-01 13:41:38" itemprop="dateModified" datetime="2018-10-01T13:41:38+08:00">2018-10-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/javaweb/" itemprop="url" rel="index"><span itemprop="name">javaweb</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="常见的网络状态"><a href="#常见的网络状态" class="headerlink" title="常见的网络状态"></a>常见的网络状态</h1><p>200: 一切正常<br>300/301： 页面重定向/跳转<br>404：资源不存在<br>403：权限不足<br>500：服务器内部错误，（代码有错）</p>
+<h1 id="jsp-定义"><a href="#jsp-定义" class="headerlink" title="jsp 定义"></a>jsp 定义</h1><pre><code>jsp: html 嵌入java代码
+&lt;% java 代码%&gt;
+</code></pre><h1 id="默认index"><a href="#默认index" class="headerlink" title="默认index"></a>默认index</h1><pre><code>在/WEB_INF/web.xml中设置默认打index
+</code></pre><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;welcome-<span class="built_in">file</span>-<span class="built_in">list</span>&gt;</span><br><span class="line">&lt;welcome-<span class="built_in">file</span>&gt;index.jsp&lt;/welcome-<span class="built_in">file</span>&gt;</span><br><span class="line">&lt;/welcome-<span class="built_in">file</span>-<span class="built_in">list</span>&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="虚拟路径"><a href="#虚拟路径" class="headerlink" title="虚拟路径"></a>虚拟路径</h1><pre><code>将web项目放在webapps之外打地方
+  在server.html 中&lt;Engine&gt;下的&lt;host&gt;钟添加&lt;Context&gt;
+</code></pre><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">方式 1</span><br><span class="line">&lt;Context <span class="attribute">docBase</span>=<span class="string">""</span> <span class="attribute">path</span>=<span class="string">""</span>&gt;</span><br><span class="line">docBase: 实际路径</span><br><span class="line">path： 虚拟路径（绝对路径或相对路径（相对webapps））</span><br><span class="line">&lt;Context <span class="attribute">docBase</span>=<span class="string">"PATH"</span> <span class="attribute">path</span>=<span class="string">"/JspProject"</span>&gt;</span><br><span class="line">访问webapps下打JspProject 相当于访问PATH</span><br><span class="line"></span><br><span class="line">方式 2</span><br><span class="line">在catalin中的localhost钟新建 项目名.xml</span><br><span class="line">打开 .xml 文件添加</span><br><span class="line">&lt;Context <span class="attribute">docBase</span>=<span class="string">"PATH"</span> <span class="attribute">path</span>=<span class="string">"/JspProject"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="虚拟主机"><a href="#虚拟主机" class="headerlink" title="虚拟主机"></a>虚拟主机</h1><pre><code>例子，通过www.test.com 访问本机
+a. 在conf/server.xml下，
+添加Host
+</code></pre><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;Host appBase=<span class="string">"实际项目路径"</span> name=<span class="string">"www.test.com"</span>&gt;</span><br><span class="line">	&lt;context docBase=<span class="string">"实际项目名"</span> path=<span class="string">"/"</span> /&gt;</span><br><span class="line">&lt;/Host&gt;</span><br><span class="line">	<span class="selector-tag">b</span>.修改Engine 的dufaultHost 为 www<span class="selector-class">.test</span><span class="selector-class">.com</span></span><br><span class="line">    c.修改本地域名解析，hosts文件</span><br><span class="line">    （ubuntu 下的/etc/hosts,windows 下 C:\windows\System32\drivers\etc\host）</span><br></pre></td></tr></table></figure>
+<pre><code>以上虚拟路径和虚拟主机不常用
+</code></pre><h1 id="Jsp执行流程"><a href="#Jsp执行流程" class="headerlink" title="Jsp执行流程"></a>Jsp执行流程</h1><pre><code>第一次访问，服务端将jsp翻译成java，再讲java编译成class文件
+</code></pre><h1 id="Eclipse-安装"><a href="#Eclipse-安装" class="headerlink" title="Eclipse 安装"></a>Eclipse 安装</h1><pre><code>说在前面Eclipse 安装首先配置jdk，jdk版本一定要与eclipse版本适配(曾经，用32位jdk配置64位eclipse，被坑了一上午)
+</code></pre><h2 id="jdk-安装"><a href="#jdk-安装" class="headerlink" title="jdk 安装"></a>jdk 安装</h2><pre><code>下载jdk，解压到目录，然后添加环境变量
+我直接添加在/etc/profile
+</code></pre><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">JAVA_HOME</span>=/usr/lib/jvm/jdk1.8.0_181</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">JRE_HOME</span>=<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">CLASSPATH</span>=.:$&#123;JAVA_HOME&#125;/lib:<span class="variable">$&#123;JRE_HOME&#125;</span>/lib</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=.:$&#123;JAVA_HOME&#125;/bin:<span class="variable">$PATH</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://www.oracle.com/technetwork/cn/java/javase/downloads/jdk8-downloads-2133151-zhs.html" target="_blank" rel="noopener">jdk 地址</a><br><a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2018-09/R/eclipse-inst-linux64.tar.gz&amp;mirror_id=1093" target="_blank" rel="noopener">eclipse</a></p>
+<h2 id="Eclipse-安装-1"><a href="#Eclipse-安装-1" class="headerlink" title="Eclipse 安装"></a>Eclipse 安装</h2><pre><code>配置玩jdk之后，下载Eclipse解压，然后运行./eclipse_inst 然后无脑操作
+</code></pre><h2 id="tomcat配置关联"><a href="#tomcat配置关联" class="headerlink" title="tomcat配置关联"></a>tomcat配置关联</h2><pre><code>首先在windows 下的preference钟找到runtime Environment 钟添加Apache Tomcat,我这边悬着tomcat 8.5
+然后在servers中配置tomcat，同样是tomcat8.5
+然后新建一个other/dynamic web project 项目
+</code></pre><h1 id="Jsp-的页面元素"><a href="#Jsp-的页面元素" class="headerlink" title="Jsp 的页面元素"></a>Jsp 的页面元素</h1><h2 id="scriptlet"><a href="#scriptlet" class="headerlink" title="scriptlet"></a>scriptlet</h2><ol>
+<li>&lt;% 局部变量 java语句%&gt;</li>
+<li>&lt;%!全局变量 定义方法% &gt;<figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby">!</span></span><br><span class="line"><span class="ruby">	public String BookName;<span class="regexp">//</span>全局变量</span></span><br><span class="line"><span class="ruby">	public void init()&#123;</span></span><br><span class="line"><span class="ruby">		BookName = <span class="string">"java book"</span>;</span></span><br><span class="line"><span class="ruby">	&#125;</span></span><br><span class="line"><span class="ruby"></span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby"> </span></span><br><span class="line"><span class="ruby">	String name = <span class="string">"zhangsan"</span>;<span class="regexp">//</span>局部变量</span></span><br><span class="line"><span class="ruby">	out.print(<span class="string">"hello..."</span>+name );</span></span><br><span class="line"><span class="ruby">	init();</span></span><br><span class="line"><span class="ruby"></span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%=</span></span></span><span class="ruby">BookName </span><span class="xml"><span class="tag">%&gt;</span></span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!--一般而言，修改web.xml,配置文件，java代码，需要重启tomcat服务--&gt;</span></span></span><br><span class="line"><span class="xml">   <span class="comment">&lt;!--修改jsp，css，html,js不需要--&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><h3 id="page指令"><a href="#page指令" class="headerlink" title="page指令"></a>page指令</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">网页开头</span><br><span class="line">&lt;%@<span class="built_in"> page </span><span class="attribute">language</span>=<span class="string">"java"</span> <span class="attribute">contentType</span>=<span class="string">"text/html; charset=UTF-8"</span></span><br><span class="line">    <span class="attribute">pageEncoding</span>=<span class="string">"UTF-8"</span>%&gt;</span><br></pre></td></tr></table></figure>
+<pre><code>page指定属性
+</code></pre><ol>
+<li>language : jsp 页面使用打脚本语言</li>
+<li>import 导入类</li>
+<li>pageEncoding:jsp 自生编码</li>
+<li>contentType： 浏览器解析jsp编码</li>
+</ol>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ol>
+<li>html 注释<!----></li>
+<li>java 注释// /**/</li>
+<li>jsp注释 &lt;%– –%&gt;</li>
+</ol>
+<p>##jsp 九大内置对象</p>
+<h2 id="out"><a href="#out" class="headerlink" title="out"></a>out</h2><pre><code>向客户端输出内容
+</code></pre><h2 id="request"><a href="#request" class="headerlink" title="request"></a>request</h2><pre><code>请求对象，存储客户端向服务端发送打请求信息
+常见方法: 
+</code></pre><ol>
+<li>String getParameter(String name);根据请求打字段名key，返回字段值value</li>
+<li>String[] getParameterValues(String name); 根据请求打字段名key 返回多个字段value</li>
+<li>void setCharacterEncoding（“编码格式utf-8”）设置请求编码(tomcat7以前默认编码ios-8859-1，tomcat8以后默认编码utf-8）</li>
+<li>getRequestDispatcher().forward();请求转发的方式跳转页面 A-&gt;B</li>
+<li>getServerContext() 或请项目的ServletContext对象</li>
+</ol>
+<h2 id="pageContent"><a href="#pageContent" class="headerlink" title="pageContent"></a>pageContent</h2><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>register.jsp<br><figure class="highlight erb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span></span></span><span class="ruby">@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="ruby">    pageEncoding=<span class="string">"UTF-8"</span></span><span class="xml">%&gt;</span></span><br><span class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"show.jsp"</span> &gt;</span></span></span><br><span class="line"><span class="xml">		用户名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span> = <span class="string">"uname"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		姓名:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span> = <span class="string">"name"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		密码:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span> = <span class="string">"pwd"</span> /&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		爱好: <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		足球:<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span> = <span class="string">"hobby"</span>  <span class="attr">value</span>=<span class="string">"足球"</span>/&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		篮球 :<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span> = <span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"篮球"</span>/&gt;</span> <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"注册"</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">form</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="vbscript">&lt;%@ page language=<span class="string">"java"</span> contentType=<span class="string">"text/html; charset=UTF-8"</span></span></span><br><span class="line"><span class="vbscript">    pageEncoding=<span class="string">"UTF-8"</span>%&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Insert title here<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span><span class="vbscript">&lt;%</span></span><br><span class="line"><span class="vbscript">		<span class="built_in">request</span>.setCharacterEncoding(<span class="string">"utf-8"</span>);//设置post 方式编码</span></span><br><span class="line"><span class="vbscript">		<span class="built_in">String</span> name = <span class="built_in">request</span>.getParameter(<span class="string">"uname"</span>); </span></span><br><span class="line"><span class="vbscript">		<span class="built_in">String</span> pwd = <span class="built_in">request</span>.getParameter(<span class="string">"pwd"</span>);</span></span><br><span class="line"><span class="vbscript">		<span class="built_in">String</span>[] hobby = <span class="built_in">request</span>.getParameterValues(<span class="string">"hobby"</span>);</span></span><br><span class="line"><span class="vbscript">	%&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	注册成功,信息如下</span></span><br><span class="line"><span class="xml">	姓名：</span><span class="vbscript">&lt;%=name %&gt;</span><span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	密码：</span><span class="vbscript">&lt;%=pwd %&gt;</span><span class="xml"><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml">	爱好：</span></span><br><span class="line"><span class="xml">	</span><span class="vbscript">&lt;%</span></span><br><span class="line"><span class="vbscript">		<span class="keyword">if</span>(hobby != <span class="literal">null</span>)&#123;</span></span><br><span class="line"><span class="vbscript">			<span class="keyword">for</span>(<span class="built_in">String</span> i : hobby)&#123;</span></span><br><span class="line"><span class="vbscript">				out.print(i);	</span></span><br><span class="line"><span class="vbscript">			&#125;	</span></span><br><span class="line"><span class="vbscript">		&#125;</span></span><br><span class="line"><span class="vbscript">		</span></span><br><span class="line"><span class="vbscript">	</span></span><br><span class="line"><span class="vbscript">	</span></span><br><span class="line"><span class="vbscript">	%&gt;</span><span class="xml"></span></span><br><span class="line"><span class="xml">	</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/2018/09/23/java/javaweb/show.png" alt="show.jsp"></p>
+<h2 id="get-和-post"><a href="#get-和-post" class="headerlink" title="get 和 post"></a>get 和 post</h2><p><a href="http://localhost:8888/JspProject/show.jsp?uname=sdf&amp;name=sdf&amp;pwd=sdf&amp;hobby=%E8%B6%B3%E7%90%83" target="_blank" rel="noopener">http://localhost:8888/JspProject/show.jsp?uname=sdf&amp;name=sdf&amp;pwd=sdf&amp;hobby=%E8%B6%B3%E7%90%83</a><br>get 提交方式 method=“get” 和 地址栏 请求方式默认都属于get提交方式，form 表带默认是get模式</p>
+<h4 id="get-和-post-区别"><a href="#get-和-post-区别" class="headerlink" title="get 和 post 区别"></a>get 和 post 区别</h4><ol>
+<li>get方式在地址栏显示请求信息，但是地址栏能够容纳信息有限，4-5kb，且不安全</li>
+<li>文件上传方式必须是post</li>
+<li>推荐使用post</li>
+</ol>
+<h2 id="乱码"><a href="#乱码" class="headerlink" title="乱码"></a>乱码</h2><p>a. 使用new String(name.getBytes(“ios-8859-1”),”utf-8”);</p>
+<p>b. 修改server.xml 将tomcat 默认编码改为 utf -8 ，添加URIEncoding=”UTF-8”<br>如图：<br><img src="/2018/09/23/java/javaweb/修改tomcat默认编码.png" alt="修改编码"></p>
+<h3 id="responds-响应对象"><a href="#responds-响应对象" class="headerlink" title="responds 响应对象"></a>responds 响应对象</h3><pre><code>提供的方法
+</code></pre><ol>
+<li>addCookie (Cookie cookie) 服务端向客户端添加一条cookie</li>
+<li>sendRedirect(String location) throws IOException 页面跳转打一种（重定向）</li>
+<li>setContentType(String type) 设置服务端编码</li>
+</ol>
+<h2 id="页面跳转的两种方式"><a href="#页面跳转的两种方式" class="headerlink" title="页面跳转的两种方式"></a>页面跳转的两种方式</h2><table>
+<thead>
+<tr>
+<th>&amp;nbps</th>
+<th>请求转发</th>
+<th>重定向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>地址栏是否改变</td>
+<td>不变</td>
+<td>改变</td>
+</tr>
+<tr>
+<td>是否保留第一次请求时的数据</td>
+<td>保留</td>
+<td>不保留</td>
+</tr>
+<tr>
+<td>请求的次数</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td>跳转位置</td>
+<td>服务端</td>
+<td>客户端发出的第二次request</td>
+</tr>
+</tbody>
+</table>
+<h3 id="重定向和转发打两种工作方式"><a href="#重定向和转发打两种工作方式" class="headerlink" title="重定向和转发打两种工作方式"></a>重定向和转发打两种工作方式</h3><pre><code>转发（客户端） --&gt; [ 服务窗口 A(服务端) -&gt; 服务窗口B]// 服务器累不转发，实现页面跳转，所以请求1次，
+重定向 (客户端) --&gt;[服务窗口A] // A告诉客户端，让客户端发情球给B
+        客户端---&gt; 根据窗口A的回复，找B，于是客户端给B发request
+</code></pre><h2 id="session-服务端"><a href="#session-服务端" class="headerlink" title="session(服务端)"></a>session(服务端)</h2><h2 id="Cookie-客户端，不是内置对象-Cookie-是服务端生成的，再发给客户端保存。"><a href="#Cookie-客户端，不是内置对象-Cookie-是服务端生成的，再发给客户端保存。" class="headerlink" title="Cookie(客户端，不是内置对象): Cookie 是服务端生成的，再发给客户端保存。"></a>Cookie(客户端，不是内置对象): Cookie 是服务端生成的，再发给客户端保存。</h2><pre><code>相当于本能地访问作用 :提高访问服务器效率，但是安全性较差
+</code></pre><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cookie： key/<span class="keyword">name</span>=value</span><br><span class="line">javax.servlet.http.Cookie</span><br><span class="line"><span class="keyword">public</span> Cookie(<span class="keyword">String</span> <span class="keyword">name</span>,<span class="keyword">String</span> <span class="keyword">name</span>)</span><br><span class="line"><span class="keyword">String</span> getName() 获取<span class="keyword">name</span></span><br><span class="line"><span class="keyword">String</span> getValue() 获取value</span><br><span class="line">void setMaxAge(int expiry); 最大有效期</span><br></pre></td></tr></table></figure>
+<p>###服务器准备发送给客户端<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">response</span><span class="selector-class">.addCookie</span>(Cookie cookie);</span><br><span class="line">页面跳转 (转发，重定向)</span><br></pre></td></tr></table></figure></p>
+<h3 id="客户端获取cookie"><a href="#客户端获取cookie" class="headerlink" title="客户端获取cookie:"></a>客户端获取cookie:</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">request</span><span class="selector-class">.getCookie</span>()</span><br></pre></td></tr></table></figure>
+<pre><code>一次只能吧全部cookie全部获取
+</code></pre><p>###session : 回话</p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><ol>
+<li>浏览网站，开始，关闭</li>
+<li>购物浏览付款关闭</li>
+</ol>
+<h4 id="JESSIONID"><a href="#JESSIONID" class="headerlink" title="JESSIONID"></a>JESSIONID</h4><pre><code>JESSIONID 于sessionID 对应，用于区分用户
+客户端第一次访问服务器时，由服务断产生一个session回话，并将sessionid 给到jsessionid，通过cookie返回客户端
+</code></pre><h4 id="session-方法"><a href="#session-方法" class="headerlink" title="session 方法"></a>session 方法</h4><ol>
+<li>getid 获取sessionid 编号</li>
+<li>boolean isNew()判断是否新用户</li>
+<li>void invalidate（）是session失效</li>
+<li>setAttribute（）</li>
+<li>getAttribute();</li>
+<li>setMaxInactiveInterval(); 设置最大有效非活动时间</li>
+<li>getMaxInactiveInterval(); 获取最大有效非活动时间</li>
+</ol>
+<h3 id="四种作用范围对象"><a href="#四种作用范围对象" class="headerlink" title="四种作用范围对象"></a>四种作用范围对象</h3><table>
+<thead>
+<tr>
+<th>对象</th>
+<th>中文名</th>
+<th>作用范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pageContext</td>
+<td>Jsp页面容器</td>
+<td>当前页面有效</td>
+</tr>
+<tr>
+<td>request</td>
+<td>请求对象</td>
+<td>同一次请求有效</td>
+</tr>
+<tr>
+<td>session</td>
+<td>会话对象</td>
+<td>同一次会话有效</td>
+</tr>
+<tr>
+<td>application</td>
+<td>全局对象</td>
+<td>全局有效</td>
+</tr>
+</tbody>
+</table>
+<h4 id="以上四种对象所共有方法"><a href="#以上四种对象所共有方法" class="headerlink" title="以上四种对象所共有方法"></a>以上四种对象所共有方法</h4>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javaweb/" rel="tag"># javaweb</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/23/javaweb/" rel="next" title="javaweb">
+                <i class="fa fa-chevron-left"></i> javaweb
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/27/JavaNote-md/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr zhong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的网络状态"><span class="nav-number">1.</span> <span class="nav-text">常见的网络状态</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsp-定义"><span class="nav-number">2.</span> <span class="nav-text">jsp 定义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#默认index"><span class="nav-number">3.</span> <span class="nav-text">默认index</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟路径"><span class="nav-number">4.</span> <span class="nav-text">虚拟路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#虚拟主机"><span class="nav-number">5.</span> <span class="nav-text">虚拟主机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jsp执行流程"><span class="nav-number">6.</span> <span class="nav-text">Jsp执行流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eclipse-安装"><span class="nav-number">7.</span> <span class="nav-text">Eclipse 安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk-安装"><span class="nav-number">7.1.</span> <span class="nav-text">jdk 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse-安装-1"><span class="nav-number">7.2.</span> <span class="nav-text">Eclipse 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tomcat配置关联"><span class="nav-number">7.3.</span> <span class="nav-text">tomcat配置关联</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jsp-的页面元素"><span class="nav-number">8.</span> <span class="nav-text">Jsp 的页面元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#scriptlet"><span class="nav-number">8.1.</span> <span class="nav-text">scriptlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">8.2.</span> <span class="nav-text">指令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#page指令"><span class="nav-number">8.2.1.</span> <span class="nav-text">page指令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-number">8.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#out"><span class="nav-number">8.4.</span> <span class="nav-text">out</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#request"><span class="nav-number">8.5.</span> <span class="nav-text">request</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageContent"><span class="nav-number">8.6.</span> <span class="nav-text">pageContent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">8.7.</span> <span class="nav-text">实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-和-post"><span class="nav-number">8.8.</span> <span class="nav-text">get 和 post</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#get-和-post-区别"><span class="nav-number">8.8.0.1.</span> <span class="nav-text">get 和 post 区别</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乱码"><span class="nav-number">8.9.</span> <span class="nav-text">乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#responds-响应对象"><span class="nav-number">8.9.1.</span> <span class="nav-text">responds 响应对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面跳转的两种方式"><span class="nav-number">8.10.</span> <span class="nav-text">页面跳转的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向和转发打两种工作方式"><span class="nav-number">8.10.1.</span> <span class="nav-text">重定向和转发打两种工作方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#session-服务端"><span class="nav-number">8.11.</span> <span class="nav-text">session(服务端)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cookie-客户端，不是内置对象-Cookie-是服务端生成的，再发给客户端保存。"><span class="nav-number">8.12.</span> <span class="nav-text">Cookie(客户端，不是内置对象): Cookie 是服务端生成的，再发给客户端保存。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端获取cookie"><span class="nav-number">8.12.1.</span> <span class="nav-text">客户端获取cookie:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">8.12.1.1.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JESSIONID"><span class="nav-number">8.12.1.2.</span> <span class="nav-text">JESSIONID</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#session-方法"><span class="nav-number">8.12.1.3.</span> <span class="nav-text">session 方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四种作用范围对象"><span class="nav-number">8.12.2.</span> <span class="nav-text">四种作用范围对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#以上四种对象所共有方法"><span class="nav-number">8.12.2.1.</span> <span class="nav-text">以上四种对象所共有方法</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr zhong</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
