@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="学海无涯">
 <meta property="og:description" content="解决mysql插入中文字符异常02:48:47Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near  &amp;apos;varchar(100) not n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-16T01:37:43.520Z">
+<meta property="og:updated_time" content="2018-10-24T12:18:30.450Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="解决mysql插入中文字符异常02:48:47Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near  &amp;apos;varchar(100) not n">
@@ -342,7 +342,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-15 18:37:43" itemprop="dateModified" datetime="2018-10-15T18:37:43-07:00">2018-10-15</time>
+                <time title="修改时间：2018-10-24 05:18:30" itemprop="dateModified" datetime="2018-10-24T05:18:30-07:00">2018-10-24</time>
               
             
           </span>
@@ -412,7 +412,9 @@ default-character-set=utf8mb4
 
 命令：alter table TABLE_NAME convert to character set utf8mb4 collate utf8mb4_bin; （将TABLE_NAME替换成你的表名）
 修改后重启Mysql
-</code></pre>
+</code></pre><h1 id="mysql-首次启动"><a href="#mysql-首次启动" class="headerlink" title="mysql 首次启动"></a>mysql 首次启动</h1><pre><code>mysql 自动生成的
+sudo cat /etc/mysql/debian.cnf
+</code></pre><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Automatically generated for Debian scripts. DO NOT TOUCH!</span></span><br><span class="line">[client]</span><br><span class="line">host     = localhost</span><br><span class="line">user     = debian-sys-maint</span><br><span class="line">password = 9rtt2JDishiMrewE</span><br><span class="line">socket   = /var/run/mysqld/mysqld.sock</span><br><span class="line">[mysql_upgrade]</span><br><span class="line">host     = localhost</span><br><span class="line">user     = debian-sys-maint</span><br><span class="line">password = 9rtt2JDishiMrewE</span><br><span class="line">socket   = /var/run/mysqld/mysqld.sock</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -454,6 +456,10 @@ default-character-set=utf8mb4
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/24/english/" rel="prev" title="english">
+                english <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -523,7 +529,7 @@ default-character-set=utf8mb4
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">11</span>
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -552,7 +558,9 @@ default-character-set=utf8mb4
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -581,7 +589,9 @@ default-character-set=utf8mb4
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -624,7 +634,7 @@ default-character-set=utf8mb4
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决mysql插入中文字符异常02-48-47"><span class="nav-number">1.</span> <span class="nav-text">解决mysql插入中文字符异常02:48:47</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决mysql插入中文字符异常02-48-47"><span class="nav-number">1.</span> <span class="nav-text">解决mysql插入中文字符异常02:48:47</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-首次启动"><span class="nav-number">2.</span> <span class="nav-text">mysql 首次启动</span></a></li></ol></div>
             
 
           </div>
