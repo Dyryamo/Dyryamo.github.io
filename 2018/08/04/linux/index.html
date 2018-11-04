@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/linux/index.html">
+<meta property="og:site_name" content="学海无涯">
+<meta property="og:description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-06T05:50:24.204Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="vim 常用命令移动H 移动到屏幕最上方一行的第一个字符  M 移动到屏幕最中央一行的第一个字符  L 移动到屏幕最下方一行的第一个字符  w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。  b 向后移动一个单词 2b 向后移动2个单词  e，同w，只不过是光标停在单词尾部  ge，同b，光标停在单词尾部。  ^ 移动到本行第一个非空白字符上。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="学海无涯" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/04/linux/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>linux | 学海无涯</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学海无涯</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/04/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr zhong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学海无涯">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">linux
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-08-04 21:45:23" itemprop="dateCreated datePublished" datetime="2018-08-04T21:45:23-07:00">2018-08-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-05 22:50:24" itemprop="dateModified" datetime="2018-08-05T22:50:24-07:00">2018-08-05</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/categories/" itemprop="url" rel="index"><span itemprop="name">categories</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="vim-常用命令"><a href="#vim-常用命令" class="headerlink" title="vim 常用命令"></a>vim 常用命令</h1><h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h2><pre><code>H 移动到屏幕最上方一行的第一个字符
+
+M 移动到屏幕最中央一行的第一个字符
+
+L 移动到屏幕最下方一行的第一个字符
+
+w 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。
+
+b 向后移动一个单词 2b 向后移动2个单词
+
+e，同w，只不过是光标停在单词尾部
+
+ge，同b，光标停在单词尾部。
+
+^ 移动到本行第一个非空白字符上。
+
+0（数字0）移动到本行第一个字符上，
+
+&lt;HOME&gt; 移动到本行第一个字符。同0健。
+
+$ 移动到行尾 3$ 移动到下面3行的行尾
+
+gg 移动到文件头。 = [[
+
+G（shift + g） 移动到文件尾。 = ]]
+
+f（find）命令也可以用于移动，fx将找到光标后第一个为x的字符，3fd将找到第三个为d的字符。
+
+F 同f，反向查找。
+
+跳到指定行，冒号+行号，回车，比如跳到240行就是 :240回车。另一个方法是行号+G，比如230G跳到230行
+</code></pre><h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><pre><code>u 撤销（Undo）
+U 撤销对整行的操作
+Ctrl + r 重做（Redo），即撤销的撤销。
+</code></pre><h2 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h2><pre><code>x 删除当前字符
+3x 删除当前光标开始向后三个字符
+X 删除当前字符的前一个字符。X=dh
+dl 删除当前字符， dl=x
+dh 删除前一个字符
+dd 删除当前行
+dj 删除上一行
+dk 删除下一行
+10d 删除当前行开始的10行。
+D 删除当前字符至行尾。D=d$
+d$ 删除当前字符之后的所有字符（本行）
+kdgg 删除当前行之前所有行（不包括当前行）
+jdG（jd shift + g）   删除当前行之后所有行（不包括当前行）
+:1,10d 删除1-10行
+:11,$d 删除11行及以后所有的行
+:1,$d 删除所有行
+J(shift + j)　　删除两行之间的空行，实际上是合并两行。
+</code></pre><h1 id="tar-的常用方法"><a href="#tar-的常用方法" class="headerlink" title="tar 的常用方法"></a>tar 的常用方法</h1><pre><code>-tar -c新建打包文件,
+-x 压缩解压缩
+-j bzip2压缩解压缩
+-z gzip压缩解压缩
+-v 显示文件名
+-f 后接被处理的文件名
+
+tar -cjvf --
+tar -xjvf --
+</code></pre><h1 id="linux下解压windows文件乱码问题"><a href="#linux下解压windows文件乱码问题" class="headerlink" title="linux下解压windows文件乱码问题"></a>linux下解压windows文件乱码问题</h1><pre><code>unzip -O Cp936 xxx.zip
+</code></pre><h1 id="firewall"><a href="#firewall" class="headerlink" title="firewall:"></a>firewall:</h1><p><em>使用命令行管理firewall之前，说明有关于防火墙的策略独立性：明确的策略，策略之间无关联。 比如mysql使用3306，firewall添加mysql服务但未添加3306，当查询3306端口状态会显示no； 同理，添加3306端口，但未添加mysql服务，当查询mysql服务是否被firewalld允许时，显示no。在这两种情况下，外网都可以正常访问，也必须能访问，这里的逻辑不存在问题。同样，拿Java程序开发来类比：往hashMap.put进service与port，当get的时候就成了两码事,即便所操作的是关于mysql服务</em></p>
+<p>#防火墙常用的命令</p>
+<h3 id="1-查看防火墙状态"><a href="#1-查看防火墙状态" class="headerlink" title="1.查看防火墙状态"></a>1.查看防火墙状态</h3><pre><code>systemctl status firewalld
+</code></pre><h3 id="2-查看开放的服务-端口："><a href="#2-查看开放的服务-端口：" class="headerlink" title="2.查看开放的服务/端口："></a>2.查看开放的服务/端口：</h3><pre><code>firewall-cmd --list-service
+firewall-cmd --list-port
+</code></pre><h3 id="3-查询指定的端口是否永久开放"><a href="#3-查询指定的端口是否永久开放" class="headerlink" title="3.查询指定的端口是否永久开放"></a>3.查询指定的端口是否永久开放</h3><pre><code>firewall-cmd --permanent --query-port=1000/tcp
+</code></pre><h3 id="4-查询指定的服务-端口："><a href="#4-查询指定的服务-端口：" class="headerlink" title="4.查询指定的服务/端口："></a>4.查询指定的服务/端口：</h3><pre><code>firewall-cmd --query-service ssh
+firewall-cmd --query-port=3306/tcp
+</code></pre><h3 id="5-添加服务："><a href="#5-添加服务：" class="headerlink" title="5.添加服务："></a>5.添加服务：</h3><pre><code>firewall-cmd --permanent --add-service=ftp
+firewall-cmd --permanent --remove-service=ftp
+</code></pre><h3 id="6-添加端口"><a href="#6-添加端口" class="headerlink" title="6.添加端口"></a>6.添加端口</h3><pre><code>方式1：
+  firewall-cmd --permanent --add-port=3306/tcp
+  firewall-cmd --permanent --add-port=1522/tcp
+  firewall-cmd --reload
+方式2：
+  cp  /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ssh.xml
+  vi  /etc/firewalld/services/ssh.xml
+  vi /etc/firewalld/zones/public.xml
+</code></pre><h3 id="7-查看存在的zones"><a href="#7-查看存在的zones" class="headerlink" title="7.查看存在的zones:"></a>7.查看存在的zones:</h3><pre><code>firewall-cmd --get-zones
+</code></pre><h3 id="8-当前使用的zone："><a href="#8-当前使用的zone：" class="headerlink" title="8.当前使用的zone："></a>8.当前使用的zone：</h3><pre><code>firewall-cmd --get-active-zones
+</code></pre><h3 id="9-zone为public的所有策略："><a href="#9-zone为public的所有策略：" class="headerlink" title="9.zone为public的所有策略："></a>9.zone为public的所有策略：</h3><pre><code>firewall-cmd --zone=public --list-all
+</code></pre><h3 id="10-设置默认的zone-（public是最合适的，也是firewall默认的）"><a href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）" class="headerlink" title="10.设置默认的zone: （public是最合适的，也是firewall默认的）"></a>10.设置默认的zone: （public是最合适的，也是firewall默认的）</h3><pre><code>firewall-cmd --set-default-zone=public
+</code></pre><p>#结果终端提示:无法获得锁/var/lib/dpkg/lock</p>
+<pre><code>结果终端提示:无法获得锁/var/lib/dpkg/lock
+E: 无法锁定管理目录(/var/lib/dpkg/)，是否有其他进程正占用它？”
+解决办法如下：
+1.终端输入 ps  -aux ，列出进程,找到含有apt-get的进程，直接sudo kill PID解决。
+2.强制解锁--命令:
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/04/algorithm/" rel="next" title="algorithm">
+                <i class="fa fa-chevron-left"></i> algorithm
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/05/net/" rel="prev" title="net">
+                net <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Mr zhong</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vim-常用命令"><span class="nav-number">1.</span> <span class="nav-text">vim 常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#移动"><span class="nav-number">1.1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#撤销"><span class="nav-number">1.2.</span> <span class="nav-text">撤销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除命令"><span class="nav-number">1.3.</span> <span class="nav-text">删除命令</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tar-的常用方法"><span class="nav-number">2.</span> <span class="nav-text">tar 的常用方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#linux下解压windows文件乱码问题"><span class="nav-number">3.</span> <span class="nav-text">linux下解压windows文件乱码问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#firewall"><span class="nav-number">4.</span> <span class="nav-text">firewall:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-查看防火墙状态"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.查看防火墙状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-查看开放的服务-端口："><span class="nav-number">4.0.2.</span> <span class="nav-text">2.查看开放的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-查询指定的端口是否永久开放"><span class="nav-number">4.0.3.</span> <span class="nav-text">3.查询指定的端口是否永久开放</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-查询指定的服务-端口："><span class="nav-number">4.0.4.</span> <span class="nav-text">4.查询指定的服务/端口：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-添加服务："><span class="nav-number">4.0.5.</span> <span class="nav-text">5.添加服务：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-添加端口"><span class="nav-number">4.0.6.</span> <span class="nav-text">6.添加端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-查看存在的zones"><span class="nav-number">4.0.7.</span> <span class="nav-text">7.查看存在的zones:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-当前使用的zone："><span class="nav-number">4.0.8.</span> <span class="nav-text">8.当前使用的zone：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-zone为public的所有策略："><span class="nav-number">4.0.9.</span> <span class="nav-text">9.zone为public的所有策略：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-设置默认的zone-（public是最合适的，也是firewall默认的）"><span class="nav-number">4.0.10.</span> <span class="nav-text">10.设置默认的zone: （public是最合适的，也是firewall默认的）</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr zhong</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Gemini</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
