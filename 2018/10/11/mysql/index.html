@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="学海无涯">
 <meta property="og:description" content="解决mysql插入中文字符异常02:48:47Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near  &amp;apos;varchar(100) not n">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-24T12:18:30.450Z">
+<meta property="og:updated_time" content="2018-11-11T12:52:37.959Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql">
 <meta name="twitter:description" content="解决mysql插入中文字符异常02:48:47Error Code: 1064. You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near  &amp;apos;varchar(100) not n">
@@ -342,7 +342,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-24 05:18:30" itemprop="dateModified" datetime="2018-10-24T05:18:30-07:00">2018-10-24</time>
+                <time title="修改时间：2018-11-11 04:52:37" itemprop="dateModified" datetime="2018-11-11T04:52:37-08:00">2018-11-11</time>
               
             
           </span>
@@ -415,6 +415,20 @@ default-character-set=utf8mb4
 </code></pre><h1 id="mysql-首次启动"><a href="#mysql-首次启动" class="headerlink" title="mysql 首次启动"></a>mysql 首次启动</h1><pre><code>mysql 自动生成的
 sudo cat /etc/mysql/debian.cnf
 </code></pre><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Automatically generated for Debian scripts. DO NOT TOUCH!</span></span><br><span class="line">[client]</span><br><span class="line">host     = localhost</span><br><span class="line">user     = debian-sys-maint</span><br><span class="line">password = 9rtt2JDishiMrewE</span><br><span class="line">socket   = /var/run/mysqld/mysqld.sock</span><br><span class="line">[mysql_upgrade]</span><br><span class="line">host     = localhost</span><br><span class="line">user     = debian-sys-maint</span><br><span class="line">password = 9rtt2JDishiMrewE</span><br><span class="line">socket   = /var/run/mysqld/mysqld.sock</span><br></pre></td></tr></table></figure>
+<h1 id="mysql-修改密码"><a href="#mysql-修改密码" class="headerlink" title="mysql 修改密码"></a>mysql 修改密码</h1><p>ALTER user ‘root‘@’localhost’ IDENTIFIED BY ‘Qian123#’  </p>
+<h1 id="mysql-skip-grant-tables"><a href="#mysql-skip-grant-tables" class="headerlink" title="mysql skip-grant-tables"></a>mysql skip-grant-tables</h1><ol>
+<li>先关闭mysql</li>
+<li>然后开启mysqld start skip-grant-tables</li>
+<li>然后mysql -uroot -p 可以不填密码直接回车</li>
+</ol>
+<h1 id="mysql-8-0-创建新用户"><a href="#mysql-8-0-创建新用户" class="headerlink" title="mysql 8.0 创建新用户"></a>mysql 8.0 创建新用户</h1><p>mysql&gt; create user ‘news‘@’39.15.16.14’ identified by ‘123news’;<br>Query OK, 0 rows affected (0.09 sec)</p>
+<h1 id="授权用户"><a href="#授权用户" class="headerlink" title="授权用户"></a>授权用户</h1><p>mysql&gt; grant all privileges on news.* to ‘news‘@’39.15.16.14’;<br>Query OK, 0 rows affected (0.10 sec)</p>
+<p>mysql&gt; flush privileges;<br>Query OK, 0 rows affected (0.01 sec)</p>
+<h1 id="创建账号密码"><a href="#创建账号密码" class="headerlink" title="创建账号密码"></a>创建账号密码</h1><p>CREATE USER <code>wangwei</code>@<code>127.0.0.1</code> IDENTIFIED BY ‘passowrd’;</p>
+<h1 id="授予权限"><a href="#授予权限" class="headerlink" title="授予权限"></a>授予权限</h1><p>GRANT ALL ON <em>.</em> TO <code>wangwei</code>@<code>127.0.0.1</code> WITH GRANT OPTION;</p>
+<h1 id="删除权限"><a href="#删除权限" class="headerlink" title="删除权限"></a>删除权限</h1><p>REVOKE all privileges ON databasename.tablename FROM ‘username‘@’host’;</p>
+<h1 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h1><p>ALTER USER ‘root‘@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘你的密码’;</p>
+
       
     </div>
 
@@ -529,7 +543,7 @@ sudo cat /etc/mysql/debian.cnf
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -560,7 +574,11 @@ sudo cat /etc/mysql/debian.cnf
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">分类</span>
                   
                 </div>
@@ -597,7 +615,11 @@ sudo cat /etc/mysql/debian.cnf
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -640,7 +662,7 @@ sudo cat /etc/mysql/debian.cnf
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决mysql插入中文字符异常02-48-47"><span class="nav-number">1.</span> <span class="nav-text">解决mysql插入中文字符异常02:48:47</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-首次启动"><span class="nav-number">2.</span> <span class="nav-text">mysql 首次启动</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决mysql插入中文字符异常02-48-47"><span class="nav-number">1.</span> <span class="nav-text">解决mysql插入中文字符异常02:48:47</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-首次启动"><span class="nav-number">2.</span> <span class="nav-text">mysql 首次启动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-修改密码"><span class="nav-number">3.</span> <span class="nav-text">mysql 修改密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-skip-grant-tables"><span class="nav-number">4.</span> <span class="nav-text">mysql skip-grant-tables</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql-8-0-创建新用户"><span class="nav-number">5.</span> <span class="nav-text">mysql 8.0 创建新用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#授权用户"><span class="nav-number">6.</span> <span class="nav-text">授权用户</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建账号密码"><span class="nav-number">7.</span> <span class="nav-text">创建账号密码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#授予权限"><span class="nav-number">8.</span> <span class="nav-text">授予权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除权限"><span class="nav-number">9.</span> <span class="nav-text">删除权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改密码"><span class="nav-number">10.</span> <span class="nav-text">修改密码</span></a></li></ol></div>
             
 
           </div>
