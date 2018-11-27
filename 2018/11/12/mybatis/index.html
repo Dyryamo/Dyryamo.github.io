@@ -116,7 +116,7 @@
 <meta property="og:site_name" content="学海无涯">
 <meta property="og:description" content="mybatis 半自动框架，轻量级框架。 hibernate 时全自动。对比  JDBC sql 嵌入在java 代码中，耦合度高，不易维护 hibernate JPA 全自动，内部生产sql 不易优化，基于全映射全制动框架 大量字段的pojo进行部分映射比较困难  步骤 根据xml 配置文件 （ 全局配置文件创建一个SQLSessionFactory 对象，有 数据源和一些运行的环境信息、 sq">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-17T11:29:14.816Z">
+<meta property="og:updated_time" content="2018-11-25T08:06:32.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mybatis">
 <meta name="twitter:description" content="mybatis 半自动框架，轻量级框架。 hibernate 时全自动。对比  JDBC sql 嵌入在java 代码中，耦合度高，不易维护 hibernate JPA 全自动，内部生产sql 不易优化，基于全映射全制动框架 大量字段的pojo进行部分映射比较困难  步骤 根据xml 配置文件 （ 全局配置文件创建一个SQLSessionFactory 对象，有 数据源和一些运行的环境信息、 sq">
@@ -342,7 +342,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-17 03:29:14" itemprop="dateModified" datetime="2018-11-17T03:29:14-08:00">2018-11-17</time>
+                <time title="修改时间：2018-11-25 00:06:32" itemprop="dateModified" datetime="2018-11-25T00:06:32-08:00">2018-11-25</time>
               
             
           </span>
@@ -391,7 +391,68 @@
 </ol>
 </li>
 </ol>
+<h1 id="mybatis-开发dao-两种方法"><a href="#mybatis-开发dao-两种方法" class="headerlink" title="mybatis 开发dao 两种方法"></a>mybatis 开发dao 两种方法</h1><pre><code>原始原始dao的 开发方发（程序员编写dao 接口和dao 实现类）
+(掌握)
+mybatis 的 mapper 接口 （相当于dao 接口 ) 代理开发方法
+(掌握)
+</code></pre><h1 id="mybatis-的配置文件sqlMapConifg"><a href="#mybatis-的配置文件sqlMapConifg" class="headerlink" title="mybatis 的配置文件sqlMapConifg"></a>mybatis 的配置文件sqlMapConifg</h1><h1 id="mabatis-核心"><a href="#mabatis-核心" class="headerlink" title="mabatis 核心"></a>mabatis 核心</h1><pre><code>mybatis 输入映射
+mybatis 输出映射
+</code></pre><h1 id="mybatis-的动态sql"><a href="#mybatis-的动态sql" class="headerlink" title="mybatis 的动态sql"></a>mybatis 的动态sql</h1><p># </p>
+<h1 id="SqlMapconfig-xml-时mybatis-的全局配置文件"><a href="#SqlMapconfig-xml-时mybatis-的全局配置文件" class="headerlink" title="SqlMapconfig.xml 时mybatis 的全局配置文件"></a>SqlMapconfig.xml 时mybatis 的全局配置文件</h1><pre><code>配置了数据源,事务等mybatis 运行文件呢
+mapper.xml 配置映射关系
+</code></pre><h1 id="SqlSessionFactory-回话工厂"><a href="#SqlSessionFactory-回话工厂" class="headerlink" title="SqlSessionFactory  回话工厂"></a>SqlSessionFactory  回话工厂</h1><pre><code>创建回话 SqlSession
+</code></pre><h1 id="SqlSession-面向用户的接口"><a href="#SqlSession-面向用户的接口" class="headerlink" title="SqlSession 面向用户的接口"></a>SqlSession 面向用户的接口</h1><pre><code>作用 操作数据库
+    发出增删改查
+</code></pre><h2 id="Excuete执行器-是一个接口-有两个实现-基本执行器-缓存执行器"><a href="#Excuete执行器-是一个接口-有两个实现-基本执行器-缓存执行器" class="headerlink" title="Excuete执行器 是一个接口,有两个实现,(基本执行器,缓存执行器)"></a>Excuete执行器 是一个接口,有两个实现,(基本执行器,缓存执行器)</h2><h2 id="mapped-Statement-底层封装对象"><a href="#mapped-Statement-底层封装对象" class="headerlink" title="mapped Statement (底层封装对象)"></a>mapped Statement (底层封装对象)</h2><pre><code>作用 对操作数据库进行封装 包括sql 语句,输入参数,输出结果类型        
+</code></pre><h1 id="typeAliases-别名-重点"><a href="#typeAliases-别名-重点" class="headerlink" title="typeAliases (别名) 重点"></a>typeAliases (别名) 重点</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求,"></a>需求,</h2><pre><code>在mapper.xml 中定义了很多的statement ,statement 需要parameterType 制定输入参数的类型,需要resultType 制定输出结果的映射类型
+如果在制定类时输入类型的全路径,不方便进行开发, 可以针对paramterType 或者resultType 制定的类型定义了一些比别名, 在mapper.xml 中沟通过
+</code></pre><h2 id="mybatis-默认支持一些系统的别名"><a href="#mybatis-默认支持一些系统的别名" class="headerlink" title="mybatis 默认支持一些系统的别名"></a>mybatis 默认支持一些系统的别名</h2><h2 id="自己定义的"><a href="#自己定义的" class="headerlink" title="自己定义的"></a>自己定义的</h2><pre><code>单个定义
+&lt;typeAliases&gt;
+    &lt;typeAlias type=&quot;com.mybatis.pojo.Employee&quot; alias=&quot;Employee&quot;/&gt;
+&lt;/typeAliases&gt;
+批量定义
 
+&lt;typeAliases&gt;
+    &lt;package 包名/&gt;
+&lt;/typeAliases&gt;
+</code></pre><h1 id="typeHandler-类型处理器"><a href="#typeHandler-类型处理器" class="headerlink" title="typeHandler (类型处理器)"></a>typeHandler (类型处理器)</h1><p>mybatis 中通过typehandler 完成jdbc 和java 类型的转换<br>日常,已经满足,不用转换</p>
+<h1 id="映射器"><a href="#映射器" class="headerlink" title="映射器"></a>映射器</h1><pre><code>(mapper 配置)
+单个映射文件的加载
+&lt;mappers&gt;
+    &lt;mapper resource=&quot;sqlmap/User.xml&quot;/&gt;
+&lt;/mappers&gt;
+
+&lt;mappers&gt;
+    &lt;mapper url=&quot;file://&quot;/&gt;
+&lt;/mappers&gt;
+
+&lt;!-- 通过mapper 接口加载映射文件
+    通过一些规范,需要讲mapper 接口类名和mapper.xml 映射文件保持一致,且在同一个目录中
+    上面规范的前提时使用mapper 代理方法
+--&gt;
+&lt;mappers&gt;
+    &lt;mapper class=&quot;com.mybatis.pojo.Employee&quot;/&gt;
+&lt;/mappers&gt;
+
+批量加载mapper 
+制定mapper接口的报名,mybatis 自动加载包名下所有的mapper
+
+&lt;mappers&gt;
+    &lt;mapper class=&quot;包名&quot;/&gt;
+&lt;/mappers&gt;
+</code></pre><h1 id="传入映射"><a href="#传入映射" class="headerlink" title="传入映射"></a>传入映射</h1><pre><code>通过parameterType 制定输入参数的类型, 类型可以时简单类型,hashmap pojo 的包装类型
+</code></pre><h2 id="6-1-传递pojo的包装对象"><a href="#6-1-传递pojo的包装对象" class="headerlink" title="6.1 传递pojo的包装对象"></a>6.1 传递pojo的包装对象</h2><h3 id="需求-1"><a href="#需求-1" class="headerlink" title="需求"></a>需求</h3><pre><code>完成用户信息的综合查询,需要传入查询条件(可能包括用户信息,商品,订单)
+针对上面的需求,建议使用自定义包装类型的pojo
+在包装类型中,
+</code></pre><h1 id="补充-po-pojo-vo-bo"><a href="#补充-po-pojo-vo-bo" class="headerlink" title="补充 po ,pojo , vo , bo"></a>补充 po ,pojo , vo , bo</h1><p><a href="https://blog.csdn.net/u011870547/article/details/81077153" target="_blank" rel="noopener">原博客出处</a></p>
+<h1 id="resultType"><a href="#resultType" class="headerlink" title="resultType"></a>resultType</h1><p>使用resultType 进行输入映射, 只有查询出来的列明和pojo 中的属性名一致时,该列才能映射成功<br>    如果查询出来的列名和pojo 中的属性名去全部不一致时,没有创建pojo 对象<br>    只要查询出来的列名和pojo 中的一个属性一致,就会创建pojo 对象</p>
+<h2 id="resultMap"><a href="#resultMap" class="headerlink" title="resultMap"></a>resultMap</h2><pre><code>如果查询出来的列名和pojo 的属性名不一致,通过定义一个resultMap和列名pojo 属性名之间的一个映射关系
+
+    &lt;resultMap type=&quot;返回类型&quot; id=&quot;userResultMap&quot;&gt;
+         &lt;id column=&quot;列&quot; property=&quot;pojo&quot; /&gt;&lt;!-- 唯一表示符 --&gt; 
+         ...
+     &lt;/resultMap&gt;
+</code></pre>
       
     </div>
 
@@ -615,7 +676,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-半自动框架，轻量级框架。-hibernate-时全自动。"><span class="nav-number">1.</span> <span class="nav-text">mybatis 半自动框架，轻量级框架。 hibernate 时全自动。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-半自动框架，轻量级框架。-hibernate-时全自动。"><span class="nav-number">1.</span> <span class="nav-text">mybatis 半自动框架，轻量级框架。 hibernate 时全自动。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#步骤"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-开发dao-两种方法"><span class="nav-number">3.</span> <span class="nav-text">mybatis 开发dao 两种方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-的配置文件sqlMapConifg"><span class="nav-number">4.</span> <span class="nav-text">mybatis 的配置文件sqlMapConifg</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mabatis-核心"><span class="nav-number">5.</span> <span class="nav-text">mabatis 核心</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mybatis-的动态sql"><span class="nav-number">6.</span> <span class="nav-text">mybatis 的动态sql</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SqlMapconfig-xml-时mybatis-的全局配置文件"><span class="nav-number">7.</span> <span class="nav-text">SqlMapconfig.xml 时mybatis 的全局配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SqlSessionFactory-回话工厂"><span class="nav-number">8.</span> <span class="nav-text">SqlSessionFactory  回话工厂</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SqlSession-面向用户的接口"><span class="nav-number">9.</span> <span class="nav-text">SqlSession 面向用户的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Excuete执行器-是一个接口-有两个实现-基本执行器-缓存执行器"><span class="nav-number">9.1.</span> <span class="nav-text">Excuete执行器 是一个接口,有两个实现,(基本执行器,缓存执行器)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mapped-Statement-底层封装对象"><span class="nav-number">9.2.</span> <span class="nav-text">mapped Statement (底层封装对象)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeAliases-别名-重点"><span class="nav-number">10.</span> <span class="nav-text">typeAliases (别名) 重点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">10.1.</span> <span class="nav-text">需求,</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-默认支持一些系统的别名"><span class="nav-number">10.2.</span> <span class="nav-text">mybatis 默认支持一些系统的别名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己定义的"><span class="nav-number">10.3.</span> <span class="nav-text">自己定义的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typeHandler-类型处理器"><span class="nav-number">11.</span> <span class="nav-text">typeHandler (类型处理器)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#映射器"><span class="nav-number">12.</span> <span class="nav-text">映射器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传入映射"><span class="nav-number">13.</span> <span class="nav-text">传入映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-传递pojo的包装对象"><span class="nav-number">13.1.</span> <span class="nav-text">6.1 传递pojo的包装对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需求-1"><span class="nav-number">13.1.1.</span> <span class="nav-text">需求</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充-po-pojo-vo-bo"><span class="nav-number">14.</span> <span class="nav-text">补充 po ,pojo , vo , bo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#resultType"><span class="nav-number">15.</span> <span class="nav-text">resultType</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#resultMap"><span class="nav-number">15.1.</span> <span class="nav-text">resultMap</span></a></li></ol></li></ol></div>
             
 
           </div>
